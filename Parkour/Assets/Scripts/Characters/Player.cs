@@ -34,7 +34,17 @@ public class Player : CharacterController
         Vector3 dir = hor * v + vert * h;
         if (dir.magnitude > 1)
             dir = dir.normalized;
-        if (dir.magnitude > 0.2)
+        if (dir.magnitude > 0.2) {
             Move(dir);
+            character.isMoving = true;
+        } else {
+            character.isMoving = false;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift) && character.isRunning) {
+            character.isRunning = false;
+        } else if (Input.GetKeyDown(KeyCode.LeftShift) && !character.isRunning) {
+            character.isRunning = true;
+        }
     }
 }

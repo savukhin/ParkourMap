@@ -8,9 +8,11 @@ public class MainCameraController : MonoBehaviour
     Vector3 positionForCamera;
     private Vector3 startOffset;
     private float zoom = 1;
+    private Rigidbody m_rigidbody;
 
     void Start() {
         startOffset = transform.position - target.transform.position;
+        m_rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
